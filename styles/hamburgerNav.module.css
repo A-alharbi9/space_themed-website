@@ -1,0 +1,7 @@
+.opened {
+  transform: translateX(100%);
+  background-color: aqua;
+}
+.closed {
+  transform: translateX(0%);
+}

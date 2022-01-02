@@ -1,13 +1,12 @@
 import React from "react";
+import HamburgerNav from "./HamburgerNav";
 import NavBar from "./Navbar";
 
 function Layout({ children }) {
   return (
     <>
-      <div>
-        <NavBar />
-        <main>{children}</main>
-      </div>
+      <NavBar />
+      <main>{children}</main>
     </>
   );
 }
