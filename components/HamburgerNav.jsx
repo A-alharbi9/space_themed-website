@@ -21,7 +21,7 @@ function HamburgerNav() {
   return (
     <div className="w-screen lg:hidden">
       <FiMenu
-        className="absolute right-5 top-5 text-2xl stroke-white"
+        className="absolute right-5 top-5 text-2xl stroke-white lg:pointer-events-none cursor-pointer"
         onClick={handleClick}
       />
 
@@ -34,10 +34,10 @@ function HamburgerNav() {
           className="bg-slate-500 text-white w-full h-5/6"
           style={{ display: isOpen }}
         >
-          <ul className="flex flex-col lg:hidden h-full cursor-pointer">
+          <ul className="flex flex-col lg:hidden h-full">
             <Link href="/">
               <a
-                className="my-4 p-6 text-center font-bold text-4xl hover:text-black w-full transition duration-400"
+                className="my-4 p-6 text-center font-bold text-4xl hover:text-black w-full transition duration-200 cursor-pointer"
                 onClick={handleClick}
               >
                 Home
@@ -45,7 +45,7 @@ function HamburgerNav() {
             </Link>
             <Link href="/">
               <a
-                className="my-4 p-6 text-center font-bold text-4xl hover:text-black w-full transition duration-400"
+                className="my-4 p-6 text-center font-bold text-4xl hover:text-black w-full transition duration-200 cursor-pointer"
                 onClick={handleClick}
               >
                 News
@@ -53,7 +53,7 @@ function HamburgerNav() {
             </Link>
             <Link href="/">
               <a
-                className="my-4 p-6 text-center font-bold text-4xl hover:text-black w-full transition duration-400"
+                className="my-4 p-6 text-center font-bold text-4xl hover:text-black w-full transition duration-200 cursor-pointer"
                 onClick={handleClick}
               >
                 Contact
@@ -61,7 +61,7 @@ function HamburgerNav() {
             </Link>
             <Link href="/">
               <a
-                className="my-4 p-6 text-center font-bold text-4xl hover:text-black w-full transition duration-400"
+                className="my-4 p-6 text-center font-bold text-4xl hover:text-black w-full transition duration-200 cursor-pointer"
                 onClick={handleClick}
               >
                 About
