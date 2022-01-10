@@ -28,7 +28,7 @@ function HamburgerNav() {
       <div
         className={`${
           isOpen === "opened" ? `${styles.closed}` : `${styles.opened}`
-        } absolute top-12 flex flex-col items-center h-screen w-screen lg:hidden transition duration-500`}
+        } absolute top-12 flex flex-col items-center h-screen w-screen lg:hidden transition duration-500 z-50`}
       >
         <nav
           className="bg-slate-500 text-white w-full h-5/6"
