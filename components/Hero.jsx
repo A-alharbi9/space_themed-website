@@ -3,7 +3,7 @@ import React from "react";
 
 function Hero() {
   return (
-    <div className="relative">
+    <section className="relative">
       <div className="absolute top-24 lg:top-52 left-28 lg:left-56 z-10">
         <div className="flex flex-col justify-center">
           <h1 className="text-white text-4xl lg:text-7xl font-semibold">
@@ -22,7 +22,7 @@ function Hero() {
           </button>
         </div>
       </div>
-      <div>
+      <div className="relative">
         <Image
           src={
             "https://images.unsplash.com/photo-1457364887197-9150188c107b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
@@ -33,7 +33,7 @@ function Hero() {
           height={340}
         />
       </div>
-    </div>
+    </section>
   );
 }
 
