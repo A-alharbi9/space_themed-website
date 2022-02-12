@@ -11,8 +11,8 @@ function OurMission() {
         <p className="font-extrabold text-3xl lg:text-4xl">Our Mission</p>
       </div>
 
-      <div className="flex flex-col lg:flex-row justify-center lg:justify-between  lg:mt-20 mx-14 lg:mx-56">
-        <div className="flex flex-col justify-center items-center lg:mt-0 lg:w-1/2 lg:mr-24">
+      <div className="flex flex-col lg:flex-row justify-center lg:justify-between mt-20 lg:mt-20 mx-14 lg:mx-56">
+        <div className="flex flex-col justify-center items-center lg:mt-5 lg:w-1/2 lg:mr-24">
           <ImRocket size={30} color="black" />
           <div>
             <p className="text-xl font-semibold text-center">
@@ -26,7 +26,7 @@ function OurMission() {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center items-center lg:mt-0 lg:w-1/2 lg:ml-24">
+        <div className="flex flex-col justify-center items-center mt-20 lg:mt-0 lg:w-1/2 lg:ml-24">
           <GiOpenBook size={30} color="black" />
           <div>
             <p className="text-xl font-semibold text-center">
