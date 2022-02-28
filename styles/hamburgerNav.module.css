@@ -1,9 +1,6 @@
 .opened {
-  transform: translateX(100%);
-  background-color: aqua;
-  overflow-x: hidden;
+  transform: translateX(0%);
 }
 .closed {
-  transform: translateX(0%);
-  overflow-x: hidden;
+  transform: translateX(-100%);
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./Footer";
 import HamburgerNav from "./HamburgerNav";
 import NavBar from "./Navbar";
 
@@ -7,6 +8,7 @@ function Layout({ children }) {
     <>
       <NavBar />
       <main>{children}</main>
+      <Footer />
     </>
   );
 }
