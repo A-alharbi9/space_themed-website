@@ -6,7 +6,7 @@ import { AiFillDatabase } from "react-icons/ai";
 
 function OurMission() {
   return (
-    <section className="my-8 py-8">
+    <section className=" pt-40 pb-28 py-8">
       <div className="flex justify-center text-center w-screen">
         <p className="font-extrabold text-3xl lg:text-4xl">Our Mission</p>
       </div>
