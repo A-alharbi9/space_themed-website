@@ -14,7 +14,7 @@ function SignupModal() {
     }
   };
 
-  const handleClick = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const res = await fetch('/api/auth/signup', {
@@ -50,7 +50,7 @@ function SignupModal() {
           onClick={toggleModal}
         >
           <div className="bg-white w-1/5 text-black rounded-md">
-            <form className="py-6" onSubmit={handleClick}>
+            <form className="py-6" onSubmit={handleSubmit}>
               <div className="py-1 px-5">
                 <label htmlFor="Name">Name:</label>
                 <div className="mt-1">

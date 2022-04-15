@@ -1,4 +1,5 @@
 const User = require('../model/singup_modal');
+const connectToDb = require('../config/db_config');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
@@ -8,9 +9,11 @@ async function login(req, res) {
   switch (req.method) {
     case 'POST':
       try {
+        await connectToDb();
+
         const userExist = await User.findOne({ email });
 
-        if (!userExist) {
+        if (userExist === null) {
           return res.status(400).json({ msg: 'User does not exist!' });
         }
 
@@ -27,10 +30,9 @@ async function login(req, res) {
           {
             id: userExist._id,
             email: userExist.email,
-            iat: Date.now(),
           },
           process.env.JWT_PRIVATE_KEY,
-          { expiresIn: 3600 }
+          { expiresIn: '5days' }
         );
 
         res.status(200).json({

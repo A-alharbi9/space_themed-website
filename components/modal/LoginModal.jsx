@@ -14,15 +14,13 @@ function LoginModal() {
     }
   };
 
-  const handleClick = async (e) => {
-    console.log('E: ', email);
-    console.log('P: ', password);
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // if (Cookies.get('token') !== undefined) {
-      //   setIsOpen(false);
-      //   return;
-      // }
+      if (Cookies.get('token') !== undefined) {
+        setIsOpen(false);
+        return;
+      }
 
       const res = await fetch('/api/auth/login', {
         method: 'POST',
@@ -34,12 +32,10 @@ function LoginModal() {
 
       const data = await res.json();
 
-      console.log('L: ', data.legit);
-
-      // if (res.status === 200) {
-      //   Cookies.set('token', data.token);
-      //   setIsOpen(false);
-      // }
+      if (res.status === 200) {
+        Cookies.set('token', data.token);
+        setIsOpen(false);
+      }
     } catch (error) {
       console.log('err: ', error.message);
     }
@@ -62,7 +58,7 @@ function LoginModal() {
           onClick={toggleModal}
         >
           <div className="bg-white w-1/5 text-black rounded-md">
-            <form className="py-6" onSubmit={handleClick}>
+            <form className="py-6" onSubmit={handleSubmit}>
               <div className="py-1 px-5">
                 <label htmlFor="userEmail">Email:</label>
                 <div className="mt-1">

@@ -1,8 +1,8 @@
-import Head from "next/head";
-import Hero from "../components/Hero";
-import OurMission from "../components/OurMission";
-import Benefits from "../components/Benefits";
-import OurSponsors from "../components/OurSponsors";
+import Head from 'next/head';
+import Hero from '../components/Hero';
+import OurMission from '../components/OurMission';
+import Benefits from '../components/Benefits';
+import OurSponsors from '../components/OurSponsors';
 
 export default function Home() {
   return (

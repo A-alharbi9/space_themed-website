@@ -1,9 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import styles from '../styles/hamburgerNav.module.css';
+import styles from '../../styles/hamburgerNav.module.css';
 import { FiMenu } from 'react-icons/fi';
-import SignupModal from './modal/SignupModal';
-import LoginModal from './modal/LoginModal';
 
 function HamburgerNav() {
   const [isOpen, setIsopen] = useState(false);
@@ -19,7 +17,7 @@ function HamburgerNav() {
   return (
     <div className="w-screen lg:hidden transition duration-500 ease-in-out">
       <FiMenu
-        className="absolute right-5 top-5 text-2xl stroke-white lg:pointer-events-none cursor-pointer"
+        className="absolute right-5 top-5 text-2xl stroke-white lg:pointer-events-none"
         onClick={handleClick}
       />
 
