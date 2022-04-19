@@ -16,12 +16,12 @@ function AuthNav() {
       <div>
         <FiMenu
           size={25}
-          className="lg:mt-2 xl:mt-1 2xl:mt-0 cursor-pointer z-50"
+          className="z-50 cursor-pointer lg:mt-2 xl:mt-1 2xl:mt-0"
           onClick={() => setIsOpen((prev) => !prev)}
         />
         {isOpen && (
           <div
-            className="fixed bg-gray-800 inset-0 bg-opacity-50 w-screen"
+            className="fixed inset-0 w-screen bg-gray-800 bg-opacity-50"
             id="overlayContainer"
             ref={modalOverlay}
             onClick={toggleModal}

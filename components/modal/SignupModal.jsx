@@ -35,9 +35,9 @@ function SignupModal() {
 
   return (
     <div>
-      <div className="flex flex-col justify-center items-center mt-2 mr-2">
+      <div className="flex flex-col items-center justify-center mt-2 mr-2">
         <button
-          className="lg:bg-green-500 lg:hover:bg-green-600 hover:text-black lg:hover:text-white w-20 py-1 px-1 font-bold lg:text-sm xl:text-base rounded-md transition duration-150"
+          className="w-20 px-1 py-1 font-bold transition duration-150 rounded-md lg:bg-green-500 lg:hover:bg-green-600 hover:text-black lg:hover:text-white lg:text-sm xl:text-base"
           onClick={() => setIsOpen(true)}
         >
           Sign up
@@ -45,52 +45,52 @@ function SignupModal() {
       </div>
       {isOpen && (
         <div
-          className="fixed flex flex-col justify-center items-center w-screen bg-gray-800 inset-0 bg-opacity-80 z-40"
+          className="fixed inset-0 z-40 flex flex-col items-center justify-center w-screen bg-gray-800 bg-opacity-80"
           id="overlayContainer"
           onClick={toggleModal}
         >
-          <div className="bg-white w-1/5 text-black rounded-md">
+          <div className="flex flex-col justify-center text-black bg-white rounded-md lg:w-2/6">
             <form className="py-6" onSubmit={handleSubmit}>
-              <div className="py-1 px-5">
+              <div className="px-5 py-1">
                 <label htmlFor="Name">Name:</label>
                 <div className="mt-1">
                   <input
                     type="text"
                     name="Name"
                     placeholder="Your name"
-                    className="py-1 px-2 w-full"
+                    className="w-full px-2 py-1"
                     onChange={(e) => setName(e.target.value)}
                   />
                 </div>
               </div>
-              <div className="py-1 px-5">
+              <div className="px-5 py-1">
                 <label htmlFor="userEmail">Email:</label>
                 <div className="mt-1">
                   <input
                     type="email"
                     name="userEmail"
                     placeholder="Your email"
-                    className="py-1 px-2 w-full"
+                    className="w-full px-2 py-1"
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
               </div>
-              <div className="py-1 px-5">
+              <div className="px-5 py-1">
                 <label htmlFor="userPassword">Password:</label>
-                <div className=" flex justify-center mt-1">
+                <div className="flex justify-center mt-1 ">
                   <input
                     type="password"
                     name="userPassword"
                     placeholder="Your password"
-                    className="py-1 px-2 w-full"
+                    className="w-full px-2 py-1"
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
               </div>
-              <div className="flex justify-center px-5 mt-4">
+              <div className="flex justify-center px-5 mt-6">
                 <button
                   type="submit"
-                  className="text-white bg-gray-800 py-2 px-2 w-5/6 rounded-md"
+                  className="w-5/6 px-2 py-2 text-white bg-gray-800 rounded-md"
                 >
                   Sign up
                 </button>

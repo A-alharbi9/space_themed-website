@@ -15,7 +15,7 @@ function HamburgerNav() {
   };
 
   return (
-    <div className="w-screen lg:hidden transition duration-500 ease-in-out">
+    <div className="w-screen transition duration-500 ease-in-out lg:hidden">
       <FiMenu
         className="absolute right-5 top-5 text-2xl stroke-white lg:pointer-events-none"
         onClick={handleClick}

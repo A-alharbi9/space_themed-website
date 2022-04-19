@@ -8,25 +8,25 @@ import AuthNav from './AuthNav';
 function NavBar({ isAuth }) {
   return (
     <div className="w-screen">
-      <nav className="fixed bg-slate-500 text-white w-full h-16 top-0 z-50">
-        <ul className="hidden lg:flex justify-center items-center w-full">
+      <nav className="fixed top-0 z-50 w-full h-16 text-white bg-slate-500">
+        <ul className="items-center justify-center hidden w-full lg:flex">
           <Link href="/">
-            <a className="my-4 lg:mr-10 xl:mr-28 font-bold text-xl xl:text-2xl hover:text-black transition duration-200 cursor-pointer">
+            <a className="my-4 text-xl font-bold transition duration-200 cursor-pointer lg:mr-10 xl:mr-28 xl:text-2xl hover:text-black">
               Home
             </a>
           </Link>
           <Link href="/">
-            <a className="my-4 lg:mr-10 xl:mr-28 font-bold text-xl xl:text-2xl hover:text-black transition duration-200 cursor-pointer">
+            <a className="my-4 text-xl font-bold transition duration-200 cursor-pointer lg:mr-10 xl:mr-28 xl:text-2xl hover:text-black">
               News
             </a>
           </Link>
           <Link href="/">
-            <a className="my-4 lg:mr-10 xl:mr-28 font-bold text-xl xl:text-2xl hover:text-black transition duration-200 cursor-pointer">
+            <a className="my-4 text-xl font-bold transition duration-200 cursor-pointer lg:mr-10 xl:mr-28 xl:text-2xl hover:text-black">
               Contact
             </a>
           </Link>
           <Link href="/">
-            <a className=" lg:mr-2 font-bold text-xl xl:text-2xl hover:text-black transition duration-200 cursor-pointer">
+            <a className="text-xl font-bold transition duration-200 cursor-pointer  lg:mr-2 xl:text-2xl hover:text-black">
               About
             </a>
           </Link>
@@ -34,7 +34,7 @@ function NavBar({ isAuth }) {
         {isAuth === undefined && (
           <>
             <div className="relative">
-              <div className="flex absolute -top-12 2xl:-top-11 lg:right-16 xl:right-32 px-2">
+              <div className="absolute flex ml-6 -top-14 lg:-top-12 xl:-top-14 lg:right-16 xl:right-32">
                 <SignupModal />
                 <LoginModal />
               </div>
@@ -44,7 +44,7 @@ function NavBar({ isAuth }) {
         )}
         {isAuth && (
           <div className="relative">
-            <div className="flex absolute top-5 right-5 lg:-top-14 lg:right-16 xl:right-32 px-2 cursor-pointer">
+            <div className="absolute flex px-2 cursor-pointer top-5 right-5 lg:-top-12 lg:right-16 xl:right-32">
               <AuthNav />
             </div>
           </div>
