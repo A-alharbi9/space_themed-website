@@ -7,7 +7,7 @@ import AuthNav from './AuthNav';
 
 function NavBar({ isAuth }) {
   return (
-    <div className="w-screen">
+    <div className="w-full h-16 bg-slate-500">
       <nav className="fixed top-0 z-50 w-full h-16 text-white bg-slate-500">
         <ul className="items-center justify-center hidden w-full lg:flex">
           <Link href="/">
@@ -26,7 +26,7 @@ function NavBar({ isAuth }) {
             </a>
           </Link>
           <Link href="/">
-            <a className="text-xl font-bold transition duration-200 cursor-pointer  lg:mr-2 xl:text-2xl hover:text-black">
+            <a className="text-xl font-bold transition duration-200 cursor-pointer lg:mr-2 xl:text-2xl hover:text-black">
               About
             </a>
           </Link>
@@ -43,11 +43,9 @@ function NavBar({ isAuth }) {
           </>
         )}
         {isAuth && (
-          <div className="relative">
-            <div className="absolute flex px-2 cursor-pointer top-5 right-5 lg:-top-12 lg:right-16 xl:right-32">
-              <AuthNav />
-            </div>
-          </div>
+          <>
+            <AuthNav />
+          </>
         )}
       </nav>
     </div>

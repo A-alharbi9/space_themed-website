@@ -1,8 +1,4 @@
 import React from 'react';
-import { GiOpenBook, GiChart } from 'react-icons/gi';
-import { ImRocket } from 'react-icons/im';
-import { BsBarChartFill } from 'react-icons/bs';
-import { AiFillDatabase } from 'react-icons/ai';
 
 function OurSponsors() {
   return (

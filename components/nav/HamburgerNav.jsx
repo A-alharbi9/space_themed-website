@@ -17,7 +17,7 @@ function HamburgerNav() {
   return (
     <div className="w-screen transition duration-500 ease-in-out lg:hidden">
       <FiMenu
-        className="absolute right-5 top-5 text-2xl stroke-white lg:pointer-events-none"
+        className="absolute text-2xl top-5 right-7 stroke-white lg:pointer-events-none"
         onClick={handleClick}
       />
 
@@ -26,62 +26,62 @@ function HamburgerNav() {
           isOpen ? `${styles.opened}` : `${styles.closed}`
         } fixed top-12 h-screen w-screen lg:hidden z-50`}
       >
-        <nav className="bg-slate-500 text-white w-full h-full">
+        <nav className="w-full h-full text-white bg-slate-500">
           <ul className="flex flex-col justify-around items-center lg:hidden h-[80%]">
             <div className="mt-12">
               <Link href="/">
                 <a
-                  className="text-center font-bold text-4xl hover:text-black px-12 w-full cursor-pointer transition duration-300"
+                  className="w-full px-12 text-4xl font-bold text-center transition duration-300 cursor-pointer hover:text-black"
                   onClick={handleClick}
                 >
                   Home
                 </a>
               </Link>
             </div>
-            <div className=" mt-4">
+            <div className="mt-4 ">
               <Link href="/">
                 <a
-                  className="text-center font-bold text-4xl hover:text-black px-12 w-full cursor-pointer transition duration-300"
+                  className="w-full px-12 text-4xl font-bold text-center transition duration-300 cursor-pointer hover:text-black"
                   onClick={handleClick}
                 >
                   News
                 </a>
               </Link>
             </div>
-            <div className=" mt-4">
+            <div className="mt-4 ">
               <Link href="/">
                 <a
-                  className="text-center font-bold text-4xl hover:text-black px-7 w-full cursor-pointer transition duration-300"
+                  className="w-full text-4xl font-bold text-center transition duration-300 cursor-pointer hover:text-black px-7"
                   onClick={handleClick}
                 >
                   Contact
                 </a>
               </Link>
             </div>
-            <div className=" mt-4">
+            <div className="mt-4 ">
               <Link href="/">
                 <a
-                  className="text-center font-bold text-4xl hover:text-black px-12 w-full cursor-pointer transition duration-300"
+                  className="w-full px-12 text-4xl font-bold text-center transition duration-300 cursor-pointer hover:text-black"
                   onClick={handleClick}
                 >
                   About
                 </a>
               </Link>
             </div>
-            <div className=" mt-4">
+            <div className="mt-4 ">
               <Link href="/">
                 <a
-                  className="text-center font-bold text-4xl hover:text-black px-12 w-full cursor-pointer transition duration-300"
+                  className="w-full px-12 text-4xl font-bold text-center transition duration-300 cursor-pointer hover:text-black"
                   onClick={handleClick}
                 >
                   Sign up
                 </a>
               </Link>
             </div>
-            <div className=" mt-4">
+            <div className="mt-4 ">
               <Link href="/">
                 <a
-                  className="text-center font-bold text-4xl hover:text-black px-12 w-full cursor-pointer transition duration-300"
+                  className="w-full px-12 text-4xl font-bold text-center transition duration-300 cursor-pointer hover:text-black"
                   onClick={handleClick}
                 >
                   Login

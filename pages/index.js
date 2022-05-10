@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Space website</title>
+        <title>Home | Atlacore</title>
         <meta name="description" content="Space themed website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
