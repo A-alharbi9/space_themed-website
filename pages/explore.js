@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
 import { ImLocation } from 'react-icons/im';
 import { BsCalendar3 } from 'react-icons/bs';
 import * as Yup from 'yup';
@@ -8,35 +7,33 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 function explore() {
+  const currentDate = new Date();
+
+  const [isActiveTrip, setIsActiveTrip] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [minDate, setMinDate] = useState('');
+  const [maxDate, setMaxDate] = useState(currentDate);
+
   let schema = Yup.object().shape({
     destination: Yup.string().required('Destination is required'),
-    startDate: Yup.date()
-      .min(new Date().toDateString())
-      .required('Start date is required!'),
+    startDate: Yup.date().min(currentDate.toDateString()).required(),
     returnDate: Yup.date()
-      .min(Yup.ref('startDate'))
-      .when('startDate', (st, schema) => {
-        console.log('SSO: ', st);
-        if (st != null) {
-          console.log('SS: ', st);
-          console.log('SS: ', st.getDate() + 1);
-          st.setDate(st.getDate() + 1);
-          console.log('SS in i: ', st.toISOString());
-          console.log('SS in: ', st);
-          console.log('............');
-          console.log('SS in i: ', st.toISOString());
-          console.log('SS in: ', st.toDateString());
-          console.log('SS in: ', st.toISOString().slice(0, 10));
-          return st && schema.min(st.toISOString());
+      .when('startDate', (sDate, schema) => {
+        if (sDate && sDate != 'Invalid Date') {
+          sDate.setHours(sDate.getHours() + 1);
 
-          //this else prevents your page from crashing if there's any other input
-        } else return schema.min('2022-05-08');
+          return sDate && schema.min(sDate);
+        }
       })
-      .transform(function (value) {
-        this.isType(value) ? undefined : value;
-      })
-      .typeError('Enter a date')
-      .required('Return date is required!'),
+      .max(
+        new Date(
+          currentDate.getFullYear() + 2,
+          currentDate.getMonth(),
+          currentDate.getDate() + 1
+        )
+      )
+      .typeError('Invalid date')
+      .required(),
   });
 
   const {
@@ -46,24 +43,14 @@ function explore() {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = (formData) => {
-    const currentDate = new Date();
-
     const startDate = formData.startDate.toDateString();
-    const startYear = formData.startDate.toDateString().slice(11);
 
     const returnDate = formData.returnDate.toDateString();
-    const returnYear = formData.returnDate.toDateString().slice(11);
-
-    const maxYear = currentDate.getFullYear() + 3;
 
     console.log(formData);
-    console.log(maxYear);
+
     console.log(startDate);
     console.log(returnDate);
-    console.log(startYear > maxYear);
-    console.log(returnYear > maxYear);
-    console.log(formData.startDate.toDateString().slice(11));
-    console.log(startYear > maxYear);
   };
 
   return (
@@ -126,11 +113,9 @@ function explore() {
                     <option value={'Neptune'}>Neptune</option>
                   </select>
                 </div>
-                <div className="flex justify-end mt-2 w-52 lg:w-56 max-h-[2.5rem]">
+                <div className="flex justify-end mt-2 w-44 max-h-[2.5rem]">
                   {errors.destination && (
-                    <p className="text-red-200 ">
-                      {errors.destination?.message}
-                    </p>
+                    <p className="text-red-200">Invalid destination</p>
                   )}
                 </div>
               </div>
