@@ -103,10 +103,10 @@ function Footer() {
       </div>
 
       <div className="lg:mt-8">
-        <p className="flex items-center justify-center">
+        <div className="flex items-center justify-center">
           {`© ${new Date().getFullYear()}`}
           <p className="p-2 text-lg font-bold"> Atlacore inc. </p>
-        </p>
+        </div>
       </div>
     </footer>
   );
