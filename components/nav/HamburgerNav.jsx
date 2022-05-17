@@ -44,7 +44,7 @@ function HamburgerNav() {
                   className="w-full px-12 text-4xl font-bold text-center transition duration-300 cursor-pointer hover:text-black"
                   onClick={handleClick}
                 >
-                  News
+                  updates
                 </a>
               </Link>
             </div>

@@ -15,9 +15,9 @@ function NavBar({ isAuth }) {
               Home
             </a>
           </Link>
-          <Link href="/">
+          <Link href="/updates">
             <a className="my-4 text-xl font-bold transition duration-200 cursor-pointer lg:mr-10 xl:mr-28 xl:text-2xl hover:text-black">
-              News
+              Updates
             </a>
           </Link>
           <Link href="/">
