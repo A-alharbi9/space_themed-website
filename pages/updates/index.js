@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 
-function updates() {
+function index() {
   const visiblePosts = 3;
 
   const [totalPosts, setTotalPosts] = useState([]);
@@ -94,12 +95,12 @@ function updates() {
         className="flex flex-col justify-around bg-repeat-round"
       >
         <div className="flex flex-col justify-around h-screen bg-gradient-to-b from-purple-600/50 via-black/70 to-pink-800/50">
-          <div className="flex flex-col items-center justify-center lg:justify-start w-full py-8">
+          <div className="flex flex-col items-center justify-center w-full py-8 lg:justify-start">
             <div className="flex flex-col items-center justify-center text-white">
               <p className="text-5xl font-bold xl:text-6xl">Updates</p>
             </div>
-            <div className="flex flex-col items-center justify-center text-white text-center w-full px-4 md:px-5 my-10">
-              <p className="md:text-xl font-thin xl:text-2xl w-full lg:w-3/4">
+            <div className="flex flex-col items-center justify-center w-full px-4 my-10 text-center text-white md:px-5">
+              <p className="w-full font-thin md:text-xl xl:text-2xl lg:w-3/4">
                 Check our latest updates and statements.
               </p>
             </div>
@@ -114,7 +115,7 @@ function updates() {
               'border-solid border-slate-400 border-b-2'
             } lg:px-5 xl:px-0`}
           >
-            <div className="flex flex-col lg:flex-row flex-wrap lg:justify-center w-full lg:w-1/2">
+            <div className="flex flex-col flex-wrap w-full lg:flex-row lg:justify-center lg:w-1/2">
               <img
                 className="w-full lg:w-[30rem] h-64 lg:h-72 lg:rounded-md"
                 src={post.image}
@@ -122,19 +123,21 @@ function updates() {
             </div>
             <div className="flex flex-col justify-center items-center lg:w-1/2 xl:w-[45%]">
               <div>
-                <p className="text-3xl font-bold text-center my-6 lg:my-0">
+                <p className="my-6 text-3xl font-bold text-center lg:my-0">
                   {post.title}
                 </p>
-                <div className="text-gray-800 lg:text-sm px-2 mb-8 lg:mt-4 lg:mb-3">
+                <div className="px-2 mb-8 text-gray-800 lg:text-sm lg:mt-4 lg:mb-3">
                   <p className="text-left">
                     {truncateString(post.postBody, 90)}
                   </p>
                 </div>
               </div>
               <div className="py-2">
-                <button className="px-5 py-2 bg-amber-600 hover:bg-amber-800 text-white rounded-md transition duration-200">
-                  Read more
-                </button>
+                <Link href={'/updates/article'}>
+                  <button className="px-5 py-2 text-white transition duration-200 rounded-md bg-amber-600 hover:bg-amber-800">
+                    Read more
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -142,7 +145,7 @@ function updates() {
         {visiblePostsState < totalPosts.length && (
           <div className="flex justify-center py-8">
             <button
-              className="px-8 py-2 bg-green-400 hover:bg-green-600 outline-none text-white rounded-md transition duration-200"
+              className="px-8 py-2 text-white transition duration-200 bg-green-400 rounded-md outline-none hover:bg-green-600"
               onClick={() =>
                 setVisiblePostsState((prevState) => prevState + visiblePosts)
               }
@@ -156,4 +159,4 @@ function updates() {
   );
 }
 
-export default updates;
+export default index;
