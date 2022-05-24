@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import truncateString from '../../utils/truncateString';
 
 function index() {
   const visiblePosts = 3;
@@ -11,15 +12,6 @@ function index() {
   useEffect(() => {
     setTotalPosts(postTestData);
   }, []);
-
-  const truncateString = (sentence, limit = 5) => {
-    const isSentence = sentence.match(/([0-9A-Za-z%'():;,.?!]+)/gm);
-
-    if (isSentence && limit < isSentence.length) {
-      return isSentence.slice(0, limit).join(' ') + '....';
-    }
-    return sentence;
-  };
 
   const postTestData = [
     {
