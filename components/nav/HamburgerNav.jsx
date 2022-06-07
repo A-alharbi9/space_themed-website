@@ -39,7 +39,7 @@ function HamburgerNav() {
               </Link>
             </div>
             <div className="mt-4 ">
-              <Link href="/">
+              <Link href="/updates">
                 <a
                   className="w-full px-12 text-4xl font-bold text-center transition duration-300 cursor-pointer hover:text-black"
                   onClick={handleClick}
@@ -59,7 +59,7 @@ function HamburgerNav() {
               </Link>
             </div>
             <div className="mt-4 ">
-              <Link href="/">
+              <Link href="/about">
                 <a
                   className="w-full px-12 text-4xl font-bold text-center transition duration-300 cursor-pointer hover:text-black"
                   onClick={handleClick}
