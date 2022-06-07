@@ -1,6 +1,6 @@
 const connectDb = require('../config/db_config');
 
-const User = require('../model/singup_modal');
+const User = require('../model/singup_model');
 const bcrypt = require('bcryptjs');
 
 const handler = async (req, res) => {

@@ -1,4 +1,4 @@
-const User = require('../model/singup_modal');
+const User = require('../model/singup_model');
 const connectToDb = require('../config/db_config');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');

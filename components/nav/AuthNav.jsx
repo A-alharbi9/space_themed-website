@@ -16,7 +16,7 @@ function AuthNav() {
       <div>
         <FiMenu
           size={25}
-          className="absolute top-5 right-5 lg:-top-12 lg:right-16 xl:right-32 z-50 cursor-pointer lg:mt-2 xl:mt-1 2xl:mt-0"
+          className="absolute z-50 cursor-pointer top-5 right-5 lg:-top-12 lg:right-16 xl:right-32 lg:mt-2 xl:mt-1 2xl:mt-0"
           onClick={() => setIsOpen((prev) => !prev)}
         />
         {isOpen ? (
