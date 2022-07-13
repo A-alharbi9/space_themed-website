@@ -43,7 +43,7 @@ function LoginModal() {
 
   return (
     <div>
-      <div className="flex flex-col items-center justify-center mt-2 ml-2">
+      <div className="flex-col items-center justify-center hidden ml-2  lg:flex">
         <button
           className="w-20 px-1 py-1 font-bold transition duration-150 rounded-md lg:bg-slate-700 lg:hover:bg-slate-900 hover:text-black lg:hover:text-white lg:text-sm xl:text-base"
           onClick={() => setIsOpen(true)}

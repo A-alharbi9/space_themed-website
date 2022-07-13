@@ -1,5 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
+import { AiOutlineHome } from 'react-icons/ai';
+import { MdOutlineAirplaneTicket } from 'react-icons/md';
+import Link from 'next/link';
 
 function AuthNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,8 +18,8 @@ function AuthNav() {
     <>
       <div>
         <FiMenu
-          size={25}
-          className="absolute z-50 cursor-pointer top-5 right-5 lg:-top-12 lg:right-16 xl:right-32 lg:mt-2 xl:mt-1 2xl:mt-0"
+          size={24}
+          className="z-50 cursor-pointer"
           onClick={() => setIsOpen((prev) => !prev)}
         />
         {isOpen ? (
@@ -33,16 +36,155 @@ function AuthNav() {
           <div
             className={`fixed top-16 right-0 ${
               isOpen ? 'translate-x-0' : 'translate-x-full'
-            } bg-slate-700 h-screen w-full sm:w-1/2 lg:w-1/4 transition duration-300`}
+            } bg-slate-700 h-screen w-full sm:w-1/2 lg:w-1/5 transition duration-300`}
           >
-            <div>
-              <ul>
-                <li>Home</li>
-                <li>Home</li>
-                <li>Home</li>
-                <li>Home</li>
-                <li>Home</li>
-              </ul>
+            <div className="flex flex-col items-center justify-around">
+              <div className="w-full">
+                <div className="relative flex justify-center lg:justify-end w-full lg:w-[70%]">
+                  <div className="absolute flex flex-col items-center justify-between h-40 lg:top-[1.6rem] lg:left-10 xl:left-[3rem] 2xl:left-[5.5rem]">
+                    <AiOutlineHome
+                      size={18}
+                      className="hidden cursor-pointer lg:block"
+                    />
+                    <MdOutlineAirplaneTicket
+                      size={18}
+                      className="hidden cursor-pointer lg:block"
+                    />
+                    <AiOutlineHome
+                      size={18}
+                      className="hidden cursor-pointer lg:block"
+                    />
+                    <AiOutlineHome
+                      size={18}
+                      className="hidden cursor-pointer lg:block"
+                    />
+                  </div>
+                  <div className="flex flex-col items-center justify-center h-full mt-2">
+                    <ul>
+                      <div className="flex py-1 my-1 cursor-pointer lg:py-3 hover:text-green-200">
+                        <Link href="/">
+                          <a className="text-lg lg:text-sm xl:px-5">Home</a>
+                        </Link>
+                      </div>
+                      <div className="flex w-full py-1 my-1 cursor-pointer lg:py-3 hover:text-green-200">
+                        <Link href="/myTrips">
+                          <a className="text-lg lg:text-sm xl:px-5 ">
+                            My trips
+                          </a>
+                        </Link>
+                      </div>
+                      <div className="flex py-1 my-1 cursor-pointer lg:py-3 hover:text-green-200">
+                        <a className="text-lg lg:text-sm xl:px-5 ">Home</a>
+                      </div>
+                      <div className="flex py-1 my-1 lg:py-3">
+                        <a className="text-lg cursor-pointer lg:text-sm xl:px-5 hover:text-green-200">
+                          Home
+                        </a>
+                      </div>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div className="w-full py-2 border-t border-solid">
+                <div className="relative flex justify-center lg:justify-end w-full lg:w-[70%]">
+                  <div className="absolute flex flex-col items-center justify-between h-40 lg:top-[1.12rem] lg:left-10  xl:left-[3rem] 2xl:left-[5.5rem]">
+                    <AiOutlineHome
+                      size={18}
+                      className="hidden cursor-pointer lg:block"
+                    />
+                    <MdOutlineAirplaneTicket
+                      size={18}
+                      className="hidden cursor-pointer lg:block"
+                    />
+                    <AiOutlineHome
+                      size={18}
+                      className="hidden cursor-pointer lg:block"
+                    />
+                    <AiOutlineHome
+                      size={18}
+                      className="hidden cursor-pointer lg:block"
+                    />
+                  </div>
+                  <div className="flex flex-col items-center justify-center h-full">
+                    <ul>
+                      <div className="flex my-1 cursor-pointer lg:py-3 hover:text-green-200">
+                        <Link href="/">
+                          <a className="text-lg lg:text-sm xl:px-5">Home</a>
+                        </Link>
+                      </div>
+                      <div className="flex w-full py-1 my-1 cursor-pointer lg:py-3 hover:text-green-200">
+                        <Link href="/">
+                          <a className="text-lg lg:text-sm xl:px-5">
+                            My tripsa
+                          </a>
+                        </Link>
+                      </div>
+                      <div className="flex py-1 my-1 cursor-pointer lg:py-3 hover:text-green-200">
+                        <Link href="/">
+                          <a className="text-lg lg:text-sm xl:px-5">Home</a>
+                        </Link>
+                      </div>
+                      <div className="flex py-1 my-1 lg:py-3">
+                        <Link href="/">
+                          <a className="text-lg cursor-pointer lg:text-sm xl:px-5 hover:text-green-200">
+                            Home
+                          </a>
+                        </Link>
+                      </div>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div className="w-full border-t border-solid">
+                <div className="relative flex justify-center lg:justify-end w-full lg:w-[70%]">
+                  <div className="absolute flex flex-col items-center justify-between h-40 lg:top-[1.12rem] lg:left-10  xl:left-[3rem] 2xl:left-[5.5rem]">
+                    <AiOutlineHome
+                      size={18}
+                      className="hidden cursor-pointer lg:block"
+                    />
+                    <MdOutlineAirplaneTicket
+                      size={18}
+                      className="hidden cursor-pointer lg:block"
+                    />
+                    <AiOutlineHome
+                      size={18}
+                      className="hidden cursor-pointer lg:block"
+                    />
+                    <AiOutlineHome
+                      size={18}
+                      className="hidden cursor-pointer lg:block"
+                    />
+                  </div>
+                  <div className="flex flex-col items-center justify-center h-full">
+                    <ul>
+                      <div className="flex my-1 cursor-pointer lg:py-3 hover:text-green-200">
+                        <Link href="/">
+                          <a className="text-lg lg:text-sm xl:px-5 ">Home</a>
+                        </Link>
+                      </div>
+                      <div className="flex w-full py-1 my-1 cursor-pointer lg:py-3 hover:text-green-200">
+                        <Link href="/">
+                          <a className="text-lg lg:text-sm xl:px-5 ">
+                            My tripsa
+                          </a>
+                        </Link>
+                      </div>
+                      <div className="flex py-1 my-1 cursor-pointer lg:py-3 hover:text-green-200">
+                        <Link href="/">
+                          <a className="text-lg lg:text-sm xl:px-5 ">Home</a>
+                        </Link>
+                      </div>
+                      <div className="flex py-1 my-1 lg:py-3">
+                        <Link href="/">
+                          <a className="text-lg lg:text-smnter lg:text-sm xl:px-5 hover:text-green-200">
+                            Home
+                          </a>
+                        </Link>
+                      </div>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

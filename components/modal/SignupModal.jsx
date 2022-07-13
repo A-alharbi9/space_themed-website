@@ -35,7 +35,7 @@ function SignupModal() {
 
   return (
     <div>
-      <div className="flex flex-col items-center justify-center mt-2 mr-2">
+      <div className="flex-col items-center justify-center hidden mr-2  lg:flex">
         <button
           className="w-20 px-1 py-1 font-bold transition duration-150 rounded-md lg:bg-green-500 lg:hover:bg-green-600 hover:text-black lg:hover:text-white lg:text-sm xl:text-base"
           onClick={() => setIsOpen(true)}
