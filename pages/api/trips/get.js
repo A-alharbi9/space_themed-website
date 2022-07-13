@@ -17,21 +17,13 @@ async function get(req, res) {
           token,
           process.env.JWT_PRIVATE_KEY,
           async (error, decoded) => {
-            console.log('ERR: ', error);
-            console.log('ERR m: ', error?.message);
-            console.log('DEC: ', decoded);
-
             if (error && error.message === 'jwt must be provided') {
-              console.log('No log!');
-
               return res
                 .status(400)
                 .json({ msg: 'You must be logged in first!' });
             }
 
             if (decoded === undefined) {
-              console.log('No dec!');
-
               return res.status(400).json({ msg: 'User does not exist!' });
             }
 
