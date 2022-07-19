@@ -46,7 +46,7 @@ function NavBar({ isAuth }) {
         ) : (
           <>
             <div className="relative">
-              <div className="absolute text-green-200 top-5 right-7 lg:-top-11 lg:right-16 xl:right-32 ">
+              <div className="absolute top-5 right-7 lg:-top-11 lg:right-16 xl:right-32 ">
                 <AuthNav />
               </div>
             </div>
