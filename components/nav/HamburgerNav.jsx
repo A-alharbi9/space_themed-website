@@ -49,7 +49,7 @@ function HamburgerNav() {
               </Link>
             </div>
             <div className="mt-4 ">
-              <Link href="/">
+              <Link href="/contact">
                 <a
                   className="w-full text-4xl font-bold text-center transition duration-300 cursor-pointer hover:text-black px-7"
                   onClick={handleClick}

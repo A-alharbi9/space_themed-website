@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { ImLocation } from 'react-icons/im';
 import { BsCalendar3 } from 'react-icons/bs';
@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-function explore() {
+function explore(props) {
   const currentDate = new Date();
 
   const [minDate, setMinDate] = useState('');

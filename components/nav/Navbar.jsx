@@ -22,7 +22,7 @@ function NavBar({ isAuth }) {
               Updates
             </a>
           </Link>
-          <Link href="/">
+          <Link href="/contact">
             <a className="my-4 text-xl font-bold transition duration-200 cursor-pointer lg:mr-10 xl:mr-28 xl:text-2xl hover:text-black">
               Contact
             </a>
