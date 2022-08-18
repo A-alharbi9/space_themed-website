@@ -13,16 +13,11 @@ function MyApp({ Component, pageProps }) {
 
 MyApp.propTypes = {
     Component: PropTypes.elementType.isRequired,
-    pageProps: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.bool,
-        PropTypes.array,
-    ]),
+    pageProps: PropTypes.oneOfType([PropTypes.object]),
 };
 
 MyApp.defaultProps = {
-    pageProps: '',
+    pageProps: {},
 };
 
 export default MyApp;

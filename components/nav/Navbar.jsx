@@ -69,7 +69,7 @@ function NavBar({ isAuth }) {
 }
 
 NavBar.propTypes = {
-    isAuth: PropTypes.bool.isRequired,
+    isAuth: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).isRequired,
 };
 
 export default NavBar;

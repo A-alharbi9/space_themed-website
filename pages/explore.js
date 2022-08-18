@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
+/*    eslint consistent-return: "off" */
 /*    eslint react/self-closing-comp: "off" */
 
 function explore() {
@@ -21,7 +22,6 @@ function explore() {
 
                     return sDate && schema.min(sDate);
                 }
-                return null;
             })
             .max(
                 new Date(
