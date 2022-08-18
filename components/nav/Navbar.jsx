@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import HamburgerNav from './HamburgerNav';
 import SignupModal from '../modal/SignupModal';
 import LoginModal from '../modal/LoginModal';
@@ -56,17 +57,19 @@ function NavBar({ isAuth }) {
                         <HamburgerNav />
                     </>
                 ) : (
-                    <>
-                        <div className="relative">
-                            <div className="absolute top-5 right-7 lg:-top-11 lg:right-16 xl:right-32 ">
-                                <AuthNav />
-                            </div>
+                    <div className="relative">
+                        <div className="absolute top-5 right-7 lg:-top-11 lg:right-16 xl:right-32 ">
+                            <AuthNav />
                         </div>
-                    </>
+                    </div>
                 )}
             </nav>
         </div>
     );
 }
+
+NavBar.propTypes = {
+    isAuth: PropTypes.bool.isRequired,
+};
 
 export default NavBar;

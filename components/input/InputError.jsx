@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BiErrorCircle } from 'react-icons/bi';
 
 function InputError({ errorMessage }) {
@@ -9,5 +10,9 @@ function InputError({ errorMessage }) {
         </div>
     );
 }
+
+InputError.propTypes = {
+    errorMessage: PropTypes.string.isRequired,
+};
 
 export default InputError;

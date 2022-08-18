@@ -6,10 +6,12 @@ import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
+/*    eslint react/self-closing-comp: "off" */
+
 function explore() {
     const currentDate = new Date();
 
-    const schema = Yup.object().shape({
+    const dataSchema = Yup.object().shape({
         destination: Yup.string().required('Destination is required'),
         startDate: Yup.date().min(currentDate.toDateString()).required(),
         returnDate: Yup.date()
@@ -36,7 +38,7 @@ function explore() {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm({ resolver: yupResolver(schema) });
+    } = useForm({ resolver: yupResolver(dataSchema) });
 
     const onSubmit = async (formData) => {
         const startDate = formData.startDate.toISOString();

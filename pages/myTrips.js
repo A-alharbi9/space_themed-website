@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Cookies from 'js-cookie';
 
+/*    eslint consistent-return: "off" */
+
 function index() {
     const [activeTab, setActiveTab] = useState('current');
     const [prevTrips, setPrevTrips] = useState([]);
@@ -32,9 +34,8 @@ function index() {
                         return false;
                     })
                     .map((trip) => {
-                        setCurrentTrips((prev) => {
-                            return [...prev, trip];
-                        });
+                        setCurrentTrips((prev) => [...prev, trip]);
+
                         return currentTrips;
                     });
                 Object.values(data.trips)
@@ -45,9 +46,7 @@ function index() {
                         return false;
                     })
                     .map((trip) => {
-                        setPrevTrips((prev) => {
-                            return [...prev, trip];
-                        });
+                        setPrevTrips((prev) => [...prev, trip]);
                         return prevTrips;
                     });
 
@@ -60,7 +59,7 @@ function index() {
 
             return res;
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     }
 

@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+/*    eslint jsx-a11y/click-events-have-key-events: "off" */
+/*    eslint jsx-a11y/no-static-element-interactions: "off" */
+
 function SignupModal() {
     const [isOpen, setIsOpen] = useState(false);
     const [name, setName] = useState('');

@@ -1,6 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
 
+/*    eslint react/self-closing-comp: "off" */
+
 function About() {
     return (
         <div>
@@ -10,7 +12,6 @@ function About() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <section className="relative">
-                {/* <div className="bg-slate-800 transform -skew-y-6 h-[80rem] lg:h-[55rem] overflow-hidden my-10"></div> */}
                 <div className="absolute bg-slate-300 top-0 h-[10rem] w-screen"></div>
                 <div className="bg-gradient-to-t from-slate-300 via-slate-100 to-slate-300 h-[46rem] lg:h-[40rem] -skew-y-6  overflow-hidden"></div>
                 <div className="absolute text-white top-24 md:top-32 lg:top-20 xl:top-40">

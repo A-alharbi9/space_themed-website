@@ -7,6 +7,9 @@ import InputError from '../components/input/InputError';
 import SuccessToast from '../components/toast/SuccessToast';
 import ErrorToast from '../components/toast/ErrorToast';
 
+/*    eslint react/jsx-curly-brace-presence: "off" */
+/*    eslint no-unneeded-ternary: "off" */
+
 function contact() {
     const [userEmail, setUserEmail] = useState('');
     const [userMessage, setUserMessage] = useState('');
@@ -141,7 +144,7 @@ function contact() {
                     </form>
                     {showSuccessToast && (
                         <SuccessToast successMessage={'Your message has been successfully sent!'} />
-                    )}{' '}
+                    )}
                     {showErrorToast && (
                         <ErrorToast errorMessage={'An error occured, please try again later!'} />
                     )}

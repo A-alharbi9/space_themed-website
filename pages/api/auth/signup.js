@@ -2,10 +2,8 @@ const bcrypt = require('bcryptjs');
 const connectDb = require('../config/db_config');
 const User = require('../model/singup_model');
 
-const handler = async (req, res) => {
-    const name = req.body.name;
-    const email = req.body.email;
-    const password = req.body.password;
+async function signup(req, res) {
+    const { name, email, password } = req.body;
 
     switch (req.method) {
         case 'POST':
@@ -21,21 +19,19 @@ const handler = async (req, res) => {
                 const passwordHash = await bcrypt.hash(password, 10);
 
                 const newUser = await User.create({
-                    name,
-                    email,
+                    name: name.trim(),
+                    email: email.trim(),
                     password: passwordHash,
                 });
 
                 return res.status(200).json({ newUser });
             } catch (erorr) {
-                res.status(500);
+                return res.status(500);
             }
-            break;
 
         default:
-            res.status(405).end();
-            break;
+            return res.status(405).end();
     }
-};
+}
 
-module.exports = handler;
+export default signup;

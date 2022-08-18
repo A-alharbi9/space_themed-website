@@ -24,7 +24,7 @@ async function send(req, res) {
                 from: `You <${process.env.SMTP_MAIL_USER}>`,
                 to: `You <${process.env.SMTP_MAIL_USER}>`,
                 subject: 'Contact us page message',
-                text: ' You have a new message from contact us form: From: `${userEmail}`Message: `${userMessage}`',
+                text: `You have a new message from contact us form: From: ${userEmail} Message: ${userMessage}`,
                 html: ` You have a new message from contact us form: <br></br><br></br><b>From:</b> ${userEmail}<br></br><br></br><b>Message:</b> ${userMessage}`,
             };
 

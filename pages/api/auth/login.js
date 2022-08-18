@@ -4,9 +4,10 @@ const User = require('../model/singup_model');
 const connectToDb = require('../config/db_config');
 
 async function login(req, res) {
-    const email = req.body.email;
-    const password = req.body.password;
-    switch (req.method) {
+    const { method } = req;
+
+    const { email, password } = req.body;
+    switch (method) {
         case 'POST':
             try {
                 await connectToDb();
@@ -32,17 +33,15 @@ async function login(req, res) {
                     { expiresIn: '5days' }
                 );
 
-                res.status(200).json({
+                return res.status(200).json({
                     token: userToken,
                 });
             } catch (error) {
-                res.status(500);
+                return res.status(500);
             }
-            break;
 
         default:
-            res.send(405).end();
-            break;
+            return res.send(405).end();
     }
 }
 

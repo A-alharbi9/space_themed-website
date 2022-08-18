@@ -1,5 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BiErrorAlt } from 'react-icons/bi';
+
+/*    eslint react/self-closing-comp: "off" */
 
 function ErrorToast({ errorMessage }) {
     return (
@@ -15,5 +18,9 @@ function ErrorToast({ errorMessage }) {
         </div>
     );
 }
+
+ErrorToast.propTypes = {
+    errorMessage: PropTypes.string.isRequired,
+};
 
 export default ErrorToast;

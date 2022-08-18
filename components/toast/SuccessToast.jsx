@@ -1,5 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
+
+/*    eslint react/self-closing-comp: "off" */
 
 function SuccessToast({ successMessage }) {
     return (
@@ -15,5 +18,9 @@ function SuccessToast({ successMessage }) {
         </div>
     );
 }
+
+SuccessToast.propTypes = {
+    successMessage: PropTypes.string.isRequired,
+};
 
 export default SuccessToast;

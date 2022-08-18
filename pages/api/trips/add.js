@@ -2,6 +2,8 @@ const jwt = require('jsonwebtoken');
 const spaceTrip = require('../model/space_trip_model');
 const connectToDb = require('../config/db_config');
 
+/*    eslint consistent-return: "off" */
+
 async function add(req, res) {
     const { token } = req.cookies;
     const { destination, startDate, returnDate } = req.body;

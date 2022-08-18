@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import Cookies from 'js-cookie';
 
+/*    eslint jsx-a11y/click-events-have-key-events: "off" */
+/*    eslint jsx-a11y/no-static-element-interactions: "off" */
+
 function LoginModal() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
