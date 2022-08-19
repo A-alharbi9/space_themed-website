@@ -24,15 +24,16 @@ function HamburgerNav() {
             <div
                 className={`${
                     isOpen ? `${styles.opened}` : `${styles.closed}`
-                } fixed top-12 h-screen w-screen lg:hidden z-50`}
+                } fixed top-12 h-screen w-screen lg:hidden z-50 transition duration-300`}
             >
                 <nav className="w-full h-full text-white bg-slate-500">
                     <ul className="flex flex-col justify-around items-center lg:hidden h-[80%]">
                         <div className="mt-12">
-                            <Link href="/" onClick={handleClick} passHref>
+                            <Link href="/" passHref>
                                 <button
                                     type="button"
                                     className="w-full px-12 text-4xl font-bold text-center transition duration-300 cursor-pointer hover:text-black"
+                                    onClick={() => setIsopen(false)}
                                 >
                                     Home
                                 </button>
@@ -43,6 +44,7 @@ function HamburgerNav() {
                                 <button
                                     type="button"
                                     className="w-full px-12 text-4xl font-bold text-center transition duration-300 cursor-pointer hover:text-black"
+                                    onClick={() => setIsopen(false)}
                                 >
                                     updates
                                 </button>
@@ -53,6 +55,7 @@ function HamburgerNav() {
                                 <button
                                     type="button"
                                     className="w-full text-4xl font-bold text-center transition duration-300 cursor-pointer hover:text-black px-7"
+                                    onClick={() => setIsopen(false)}
                                 >
                                     Contact
                                 </button>
@@ -63,6 +66,7 @@ function HamburgerNav() {
                                 <button
                                     type="button"
                                     className="w-full px-12 text-4xl font-bold text-center transition duration-300 cursor-pointer hover:text-black"
+                                    onClick={() => setIsopen(false)}
                                 >
                                     About
                                 </button>
@@ -73,6 +77,7 @@ function HamburgerNav() {
                                 <button
                                     type="button"
                                     className="w-full px-12 text-4xl font-bold text-center transition duration-300 cursor-pointer hover:text-black"
+                                    onClick={() => setIsopen(false)}
                                 >
                                     Sign up
                                 </button>
@@ -83,6 +88,7 @@ function HamburgerNav() {
                                 <button
                                     type="button"
                                     className="w-full px-12 text-4xl font-bold text-center transition duration-300 cursor-pointer hover:text-black"
+                                    onClick={() => setIsopen(false)}
                                 >
                                     Login
                                 </button>
