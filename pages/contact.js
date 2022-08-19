@@ -84,7 +84,7 @@ function contact() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className="flex flex-col items-center justify-center w-screen h-screen ">
-                <div className="flex flex-col items-center justify-between w-11/12 max-h-[70vh] pt-12 bg-gray-100">
+                <div className="flex flex-col items-center justify-between w-full pt-12 bg-gray-100 md:w-11/12 mb-9">
                     <p className="text-2xl font-bold">Contact us</p>
                     <form
                         method="post"
