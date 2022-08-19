@@ -39,37 +39,41 @@ function contact() {
     }, [isSubmitSuccessful]);
 
     const submittedData = async (formData) => {
-        setIsSubmitting(true);
+        try {
+            setIsSubmitting(true);
 
-        const res = await fetch('/api/email/send', {
-            method: 'POST',
-            body: JSON.stringify({
-                userEmail: formData.userEmail,
-                userMessage: formData.userMessage,
-            }),
-            headers: {
-                'Content-type': 'application/json',
-            },
-        });
+            const res = await fetch('/api/email/send', {
+                method: 'POST',
+                body: JSON.stringify({
+                    userEmail: formData.userEmail,
+                    userMessage: formData.userMessage,
+                }),
+                headers: {
+                    'Content-type': 'application/json',
+                },
+            });
 
-        if (res.status === 200) {
-            setShowSuccessToast(true);
+            if (res.status === 200) {
+                setShowSuccessToast(true);
 
-            setTimeout(() => {
-                setShowSuccessToast(false);
-            }, 5500);
-        } else {
-            setShowErrorToast(true);
+                setTimeout(() => {
+                    setShowSuccessToast(false);
+                    setIsSubmitting(false);
+                }, 5500);
+            } else {
+                setShowErrorToast(true);
 
-            setTimeout(() => {
-                setShowErrorToast(false);
-            }, 5500);
+                setTimeout(() => {
+                    setShowErrorToast(false);
+                    setIsSubmitting(false);
+                }, 5500);
+            }
+
+            setUserEmail('');
+            setUserMessage('');
+        } catch (error) {
+            console.error(error);
         }
-
-        setUserEmail('');
-        setUserMessage('');
-
-        setIsSubmitting(false);
     };
 
     return (
