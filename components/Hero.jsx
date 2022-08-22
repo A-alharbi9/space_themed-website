@@ -1,11 +1,12 @@
 import React from 'react';
+import Link from 'next/link';
 
 function Hero() {
     return (
         <section>
             <div className="relative">
                 <img
-                    src="https://images.unsplash.com/photo-1457364887197-9150188c107b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                    src="../images/main_image.jpg"
                     alt="main_image"
                     className="w-screen h-96 md:h-[30rem] lg:h-[48rem]"
                 />
@@ -22,12 +23,11 @@ function Hero() {
                         </span>
                     </div>
                     <div className="flex justify-center w-full py-2 lg:justify-center mt-9 ">
-                        <button
-                            type="button"
-                            className="w-2/3 px-3 py-2 text-lg text-center text-white transition duration-500 bg-orange-600 rounded-lg cursor-pointer xl:w-1/2 hover:bg-orange-600 hover:text-black"
-                        >
-                            Learn more
-                        </button>
+                        <Link href="/explore">
+                            <span className="w-2/3 px-3 py-2 text-lg text-center text-white transition duration-500 bg-orange-600 rounded-lg cursor-pointer xl:w-1/2 hover:bg-orange-600 hover:text-black">
+                                Learn more
+                            </span>
+                        </Link>
                     </div>
                 </div>
             </div>

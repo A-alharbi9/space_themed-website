@@ -10,6 +10,7 @@ export default function Home() {
         <div>
             <Head>
                 <title>Home | Atlacore</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta name="description" content="Space themed website" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>

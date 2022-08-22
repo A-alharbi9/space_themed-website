@@ -12,8 +12,9 @@ function OurSponsors() {
                     <div className="flex flex-col items-center justify-center lg:mt-14 lg:w-1/2 lg:mr-24">
                         <div className="w-[17.5rem]">
                             <img
-                                src="https://2.bp.blogspot.com/-O-KD4TE_mUM/XFsuTVBfOWI/AAAAAAAAH38/RpbJ9IGRIzQC1HcA7sUoJb4p4TSrbU5vgCK4BGAYYCw/s1600/logo%2Bnasa.png"
-                                alt=""
+                                src="../images/sponsor_one.png"
+                                alt="sponsor_one"
+                                className="h-[14.5rem]"
                             />
                         </div>
                         <div className="mt-10">
@@ -26,8 +27,9 @@ function OurSponsors() {
                     <div className="flex flex-col items-center justify-center mt-20 lg:mt-0 lg:w-1/2 lg:ml-24">
                         <div className=" w-[18rem]">
                             <img
-                                src="https://logodownload.org/wp-content/uploads/2021/02/spacex-logo-0-1536x1536.png"
-                                alt=""
+                                src="../images/sponsor_two.png"
+                                alt="sponsor_two"
+                                className="h-72"
                             />
                         </div>
                         <div>
@@ -40,8 +42,9 @@ function OurSponsors() {
                     <div className="flex flex-col items-center justify-center lg:w-1/2 mb-14 lg:mb-0 lg:mr-24">
                         <div className=" w-80">
                             <img
-                                src="http://logok.org/wp-content/uploads/2014/10/ESA-logo-and-wordmark.png"
-                                alt=""
+                                src="../images/sponsor_three.png"
+                                alt="sponsor_three"
+                                className="h-60"
                             />
                         </div>
 
@@ -55,8 +58,9 @@ function OurSponsors() {
                     <div className="flex flex-col items-center justify-center mt-16 lg:mt-0 lg:w-1/2 lg:ml-24">
                         <div className="w-[16.5rem]">
                             <img
-                                src="https://www.nasa.gov/sites/default/files/thumbnails/image/sservi_badgelogo.png"
-                                alt=""
+                                src="../images/sponsor_four.png"
+                                alt="sponsor_four"
+                                className="h-64 "
                             />
                         </div>
                         <div className="mt-12">
