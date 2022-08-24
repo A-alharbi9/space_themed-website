@@ -6,7 +6,7 @@ function Hero() {
         <section>
             <div className="relative">
                 <img
-                    src="../images/main_image.jpg"
+                    src="../images/main_image.webp"
                     alt="main_image"
                     className="w-screen h-96 md:h-[30rem] lg:h-[48rem]"
                 />
