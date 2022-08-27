@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useContext } from 'react';
 import Link from 'next/link';
-import PropTypes from 'prop-types';
 import HamburgerNav from './HamburgerNav';
 import SignupModal from '../modal/SignupModal';
 import LoginModal from '../modal/LoginModal';
 import AuthNav from './AuthNav';
+import { isAuthContext } from '../../contexts/authContext';
 
-function NavBar({ isAuth }) {
-    useEffect(() => {}, [isAuth]);
+function NavBar() {
+    const { isAuthState } = useContext(isAuthContext);
 
     return (
         <div className="w-full h-16 bg-slate-500">
@@ -46,7 +46,7 @@ function NavBar({ isAuth }) {
                         </button>
                     </Link>
                 </ul>
-                {isAuth === undefined ? (
+                {!isAuthState ? (
                     <>
                         <div className="relative">
                             <div className="absolute flex ml-6 top-5 right-7 lg:-top-11 lg:right-16 xl:right-32 ">
@@ -67,13 +67,5 @@ function NavBar({ isAuth }) {
         </div>
     );
 }
-
-NavBar.propTypes = {
-    isAuth: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-};
-
-NavBar.defaultProps = {
-    isAuth: undefined,
-};
 
 export default NavBar;

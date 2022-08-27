@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Head from 'next/head';
 import { ImLocation } from 'react-icons/im';
 import { BsCalendar3 } from 'react-icons/bs';
 import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { isAuthContext } from '../contexts/authContext';
 
 /*    eslint consistent-return: "off" */
 /*    eslint react/self-closing-comp: "off" */
 
 function explore() {
+    const { isAuthState } = useContext(isAuthContext);
+
     const currentDate = new Date();
 
     const dataSchema = Yup.object().shape({
@@ -162,12 +165,18 @@ function explore() {
                                 </div>
                             </div>
                             <div className="flex flex-row items-center justify-center w-full mx-1 my-2 ml-8 lg:flex-col lg:my-0 lg:ml-0 lg:h-full">
-                                <button
-                                    className="px-10 py-2 transition duration-150 bg-orange-400 rounded-md hover:bg-orange-600 lg:px-10 md:px-14"
-                                    type="submit"
-                                >
-                                    Add
-                                </button>
+                                {isAuthState ? (
+                                    <button
+                                        className="px-10 py-2 transition duration-150 bg-orange-400 rounded-md hover:bg-orange-600 lg:px-10 md:px-14"
+                                        type="submit"
+                                    >
+                                        Add
+                                    </button>
+                                ) : (
+                                    <p className="text-orange-300 font-semibold cursor-default">
+                                        Login to add trips
+                                    </p>
+                                )}
                             </div>
                         </div>
                     </div>
