@@ -7,6 +7,7 @@ async function login(req, res) {
     const { method } = req;
 
     const { email, password } = req.body;
+
     switch (method) {
         case 'POST':
             try {
@@ -15,7 +16,7 @@ async function login(req, res) {
                 const userExist = await User.findOne({ email });
 
                 if (userExist === null) {
-                    return res.status(400).json({ msg: 'User does not exist!' });
+                    return res.status(400).json({ msg: 'Name/email is incorrect!' });
                 }
 
                 const passwordMatch = await bcrypt.compare(password, userExist.password);
