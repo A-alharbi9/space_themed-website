@@ -73,7 +73,7 @@ function HamburgerNav() {
                             </Link>
                         </div>
                         <div className="mt-4 ">
-                            <Link href="/" onClick={handleClick} passHref>
+                            <Link href="/auth/signup" onClick={handleClick} passHref>
                                 <button
                                     type="button"
                                     className="w-full px-12 text-4xl font-bold text-center transition duration-300 cursor-pointer hover:text-black"
@@ -84,7 +84,7 @@ function HamburgerNav() {
                             </Link>
                         </div>
                         <div className="mt-4 ">
-                            <Link href="/" onClick={handleClick} passHref>
+                            <Link href="/auth/login" onClick={handleClick} passHref>
                                 <button
                                     type="button"
                                     className="w-full px-12 text-4xl font-bold text-center transition duration-300 cursor-pointer hover:text-black"
