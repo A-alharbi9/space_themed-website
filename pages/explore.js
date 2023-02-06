@@ -17,13 +17,21 @@ function explore() {
 
     const dataSchema = Yup.object().shape({
         destination: Yup.string().required('Destination is required'),
-        startDate: Yup.date().min(currentDate.toDateString()).required(),
+        startDate: Yup.date()
+            .min(
+                new Date(
+                    currentDate.getFullYear(),
+                    currentDate.getMonth(),
+                    currentDate.getDate() + 1
+                )
+            )
+            .required(),
         returnDate: Yup.date()
             .when('startDate', (sDate, schema) => {
-                if (sDate && sDate !== 'Invalid Date') {
-                    sDate.setHours(sDate.getHours() + 2);
+                if (sDate != null) {
+                    sDate.setHours(sDate.getHours() + 1);
 
-                    return sDate && schema.min(sDate);
+                    return sDate != 'Invalid Date' ? schema.min(sDate) : schema.min(currentDate);
                 }
             })
             .max(
@@ -33,13 +41,13 @@ function explore() {
                     currentDate.getDate() + 1
                 )
             )
-            .typeError('Invalid date')
             .required(),
     });
 
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm({ resolver: yupResolver(dataSchema) });
 
@@ -61,6 +69,10 @@ function explore() {
         });
 
         const data = await res.json();
+
+        if (res.status == 200) {
+            reset();
+        }
 
         return data;
     };

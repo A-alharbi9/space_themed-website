@@ -57,7 +57,7 @@ function login() {
             switch (res.status) {
                 case 200:
                     setSuccessResMessage('logged in successfully!');
-                    Cookies.set('token', `jwt ${data.token}`);
+                    Cookies.set('token', data.token);
                     break;
 
                 case 400:
@@ -80,8 +80,6 @@ function login() {
 
             return data;
         } catch (error) {
-            console.log(error);
-
             setErrorResMessage('Something went wrong!');
         }
     };
