@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Head from 'next/head';
 import { ImLocation } from 'react-icons/im';
 import { BsCalendar3 } from 'react-icons/bs';
@@ -6,12 +6,17 @@ import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { isAuthContext } from '../contexts/authContext';
+import InputSuccess from '../components/input/InputSuccess';
+import InputError from '../components/input/InputError';
 
 /*    eslint consistent-return: "off" */
 /*    eslint react/self-closing-comp: "off" */
 
 function explore() {
     const { isAuthState } = useContext(isAuthContext);
+
+    const [successRes, setSuccessRes] = useState('');
+    const [failureRes, setFailureRes] = useState('');
 
     const currentDate = new Date();
 
@@ -48,7 +53,7 @@ function explore() {
         register,
         handleSubmit,
         reset,
-        formState: { errors },
+        formState: { errors, isSubmitting },
     } = useForm({ resolver: yupResolver(dataSchema) });
 
     const onSubmit = async (formData) => {
@@ -70,9 +75,26 @@ function explore() {
 
         const data = await res.json();
 
-        if (res.status == 200) {
-            reset();
+        switch (res.status) {
+            case 200:
+                setSuccessRes('Trip added successfully!');
+                break;
+
+            case 400:
+                setFailureRes('Trip already added!');
+                break;
+
+            default:
+                setFailureRes('An error occured!');
+                break;
         }
+
+        setTimeout(() => {
+            setSuccessRes('');
+            setFailureRes('');
+        }, 4500);
+
+        reset();
 
         return data;
     };
@@ -117,79 +139,100 @@ function explore() {
 
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="flex flex-col justify-center lg:flex-row">
-                        <div className="flex flex-col lg:flex-row justify-center lg:justify-around items-center lg:w-[78vw] py-8 lg:py-4 bg-gradient-to-r from-slate-400/80 via-black/50 to-slate-300/50 p-2 lg:lg:rounded-md">
-                            <div className="flex flex-col items-center justify-between lg:justify-center py-2 mr-1 lg:mr-0 mt-1.5 w-1/3 xl:w-full">
-                                <div className="flex items-center justify-center ml-2 lg:ml-0">
-                                    <div className="mr-3">
-                                        <ImLocation size={25} className="text-white" />
+                        <div className="flex flex-col lg:flex-row justify-center lg:justify-around items-center lg:w-[78vw] min-h-[50vh] lg:min-h-[15vh] py-8 lg:py-4 bg-gradient-to-r from-slate-400/80 via-black/50 to-slate-300/50 p-2 lg:lg:rounded-md">
+                            {successRes && (
+                                <>
+                                    <div className="flex flex-col justify-center items-center bg-white pr-3 rounded-md min-h-[3rem]">
+                                        <InputSuccess successMessage={successRes} />
                                     </div>
-                                    <select
-                                        className="w-[11.1rem] md:w-72 lg:w-32 py-2 text-center text-black lg:rounded-md ml-3 "
-                                        {...register('destination')}
-                                        name="destination"
-                                    >
-                                        <option value=""></option>
-                                        <option value="Mercury">Mercury</option>
-                                        <option value="Venus">Venus</option>
-                                        <option value="Mars">Mars</option>
-                                        <option value="Jupiter">Jupiter</option>
-                                        <option value="Saturn">Saturn</option>
-                                        <option value="Uranus">Uranus</option>
-                                        <option value="Neptune">Neptune</option>
-                                    </select>
-                                </div>
-                                <div className="flex justify-end mt-2 w-44 max-h-[2.5rem]">
-                                    {errors.destination && (
-                                        <p className="text-red-200">Invalid destination</p>
-                                    )}
-                                </div>
-                            </div>
-                            <div className="flex flex-col items-center justify-between lg:justify-center py-2 mt-1.5 w-1/3 xl:w-full">
-                                <div className="flex items-center justify-center mr-5 lg:mr-0 lg:ml-0">
-                                    <BsCalendar3 size={25} className="mx-6 text-white" />
-                                    <input
-                                        type="date"
-                                        name="startDate"
-                                        className="py-2 text-center text-black w-44 md:w-72 lg:w-32 lg:rounded-md"
-                                        {...register('startDate')}
-                                    />
-                                </div>
-                                <div className="flex justify-end mt-2 w-36 max-h-[2.5rem]">
-                                    {errors.startDate && (
-                                        <p className="text-red-200">Invalid date</p>
-                                    )}
-                                </div>
-                            </div>
-                            <div className="flex flex-col items-center justify-between lg:justify-center py-2 mt-1.5 w-1/3 xl:w-full">
-                                <div className="flex items-center justify-center px-2 mr-5 theDate form-floating lg:mr-0">
-                                    <BsCalendar3 size={25} className="mx-6 text-white" />
-                                    <input
-                                        type="date"
-                                        name="returnDate"
-                                        className="py-2 text-center text-black form-control w-44 md:w-72 lg:w-32 lg:rounded-md"
-                                        {...register('returnDate')}
-                                    />
-                                </div>
-                                <div className="flex justify-end mt-2 w-36 max-h-[2.5rem]">
-                                    {errors.returnDate && (
-                                        <p className="text-red-200">Invalid date</p>
-                                    )}
-                                </div>
-                            </div>
-                            <div className="flex flex-row items-center justify-center w-full mx-1 my-2 ml-8 lg:flex-col lg:my-0 lg:ml-0 lg:h-full">
-                                {isAuthState ? (
-                                    <button
-                                        className="px-10 py-2 transition duration-150 bg-orange-400 rounded-md hover:bg-orange-600 lg:px-10 md:px-14"
-                                        type="submit"
-                                    >
-                                        Add
-                                    </button>
-                                ) : (
-                                    <p className="text-orange-300 font-semibold cursor-default">
-                                        Login to add trips
-                                    </p>
-                                )}
-                            </div>
+                                </>
+                            )}
+                            {failureRes && (
+                                <>
+                                    <div className="flex flex-col justify-center items-center bg-white pr-3 rounded-md min-h-[3rem]">
+                                        <InputError errorMessage={failureRes} />
+                                    </div>
+                                </>
+                            )}
+                            {!successRes && !failureRes && (
+                                <>
+                                    <div className="flex flex-col items-center justify-between lg:justify-center py-2 mr-1 lg:mr-0 mt-1.5 w-1/3 xl:w-full">
+                                        <div className="flex items-center justify-center ml-2 lg:ml-0">
+                                            <div className="mr-3">
+                                                <ImLocation size={25} className="text-white" />
+                                            </div>
+                                            <select
+                                                className="w-[11.1rem] md:w-72 lg:w-32 py-2 text-center text-black lg:rounded-md ml-3 "
+                                                {...register('destination')}
+                                                name="destination"
+                                            >
+                                                <option value=""></option>
+                                                <option value="Mercury">Mercury</option>
+                                                <option value="Venus">Venus</option>
+                                                <option value="Mars">Mars</option>
+                                                <option value="Jupiter">Jupiter</option>
+                                                <option value="Saturn">Saturn</option>
+                                                <option value="Uranus">Uranus</option>
+                                                <option value="Neptune">Neptune</option>
+                                            </select>
+                                        </div>
+                                        <div className="flex justify-end mt-2 w-44 max-h-[2.5rem]">
+                                            {errors.destination && (
+                                                <p className="text-red-200">Invalid destination</p>
+                                            )}
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-col items-center justify-between lg:justify-center py-2 mt-1.5 w-1/3 xl:w-full">
+                                        <div className="flex items-center justify-center mr-5 lg:mr-0 lg:ml-0">
+                                            <BsCalendar3 size={25} className="mx-6 text-white" />
+                                            <input
+                                                type="date"
+                                                name="startDate"
+                                                className="py-2 text-center text-black w-44 md:w-72 lg:w-32 lg:rounded-md"
+                                                {...register('startDate')}
+                                            />
+                                        </div>
+                                        <div className="flex justify-end mt-2 w-36 max-h-[2.5rem]">
+                                            {errors.startDate && (
+                                                <p className="text-red-200">Invalid date</p>
+                                            )}
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-col items-center justify-between lg:justify-center py-2 mt-1.5 w-1/3 xl:w-full">
+                                        <div className="flex items-center justify-center px-2 mr-5 theDate form-floating lg:mr-0">
+                                            <BsCalendar3 size={25} className="mx-6 text-white" />
+                                            <input
+                                                type="date"
+                                                name="returnDate"
+                                                className="py-2 text-center text-black form-control w-44 md:w-72 lg:w-32 lg:rounded-md"
+                                                {...register('returnDate')}
+                                            />
+                                        </div>
+                                        <div className="flex justify-end mt-2 w-36 max-h-[2.5rem]">
+                                            {errors.returnDate && (
+                                                <p className="text-red-200">Invalid date</p>
+                                            )}
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-row items-center justify-center w-full mx-1 my-2 ml-8 lg:flex-col lg:my-0 lg:ml-0 lg:h-full">
+                                        {isAuthState ? (
+                                            <button
+                                                className={` text-white px-10 py-2 transition duration-150 bg-orange-400 rounded-md hover:bg-orange-600 lg:px-10 md:px-14 ${
+                                                    isSubmitting && 'disabled:opacity-90'
+                                                }`}
+                                                type="submit"
+                                                disabled={isSubmitting}
+                                            >
+                                                Add
+                                            </button>
+                                        ) : (
+                                            <p className="text-orange-300 font-semibold cursor-default">
+                                                Login to add trips
+                                            </p>
+                                        )}
+                                    </div>
+                                </>
+                            )}
                         </div>
                     </div>
                 </form>
