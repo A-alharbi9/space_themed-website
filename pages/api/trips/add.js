@@ -40,9 +40,8 @@ async function add(req, res) {
                             return res.status(200).json({
                                 trip: newTrip,
                             });
-                        } else {
-                            return res.status(400).json({ msg: 'Trip already Exist!' });
                         }
+                        return res.status(400).json({ msg: 'Trip already Exist!' });
                     } catch (err) {
                         res.status(500).json({ error: 'Invalid!' });
                     }

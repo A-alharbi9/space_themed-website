@@ -36,7 +36,7 @@ function explore() {
                 if (sDate != null) {
                     sDate.setHours(sDate.getHours() + 1);
 
-                    return sDate != 'Invalid Date' ? schema.min(sDate) : schema.min(currentDate);
+                    return sDate !== 'Invalid Date' ? schema.min(sDate) : schema.min(currentDate);
                 }
             })
             .max(
@@ -141,18 +141,14 @@ function explore() {
                     <div className="flex flex-col justify-center lg:flex-row">
                         <div className="flex flex-col lg:flex-row justify-center lg:justify-around items-center lg:w-[78vw] min-h-[50vh] lg:min-h-[15vh] py-8 lg:py-4 bg-gradient-to-r from-slate-400/80 via-black/50 to-slate-300/50 p-2 lg:lg:rounded-md">
                             {successRes && (
-                                <>
-                                    <div className="flex flex-col justify-center items-center bg-white pr-3 rounded-md min-h-[3rem]">
-                                        <InputSuccess successMessage={successRes} />
-                                    </div>
-                                </>
+                                <div className="flex flex-col justify-center items-center bg-white pr-3 rounded-md min-h-[3rem]">
+                                    <InputSuccess successMessage={successRes} />
+                                </div>
                             )}
                             {failureRes && (
-                                <>
-                                    <div className="flex flex-col justify-center items-center bg-white pr-3 rounded-md min-h-[3rem]">
-                                        <InputError errorMessage={failureRes} />
-                                    </div>
-                                </>
+                                <div className="flex flex-col justify-center items-center bg-white pr-3 rounded-md min-h-[3rem]">
+                                    <InputError errorMessage={failureRes} />
+                                </div>
                             )}
                             {!successRes && !failureRes && (
                                 <>
